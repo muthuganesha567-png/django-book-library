@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Book Library</title>
+</head>
+<body>
+
+    <h1>My Book Library</h1>
+
+    <p>Total Books: {{ books|length }}</p>
+
+    <a href="{% url 'add_book' %}">Add New Book</a>
+
+    <hr>
+
+    {% for book in books %}
+        <div class="book">
+            <h2>{{ book.title }}</h2>
+
+            <p>Author: {{ book.author }}</p>
+
+            <p>Year: {{ book.year_published }}</p>
+
+            {% if book.is_available %}
+                <p>Status: Available</p>
+            {% else %}
+                <p>Status: Not Available</p>
+            {% endif %}
+        </div>
+
+        <hr>
+
+    {% empty %}
+        <p>No books available.</p>
+    {% endfor %}
+
+</body>
+</html>
