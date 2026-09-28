@@ -1,8 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>My Book Library</title>
+    <link rel="stylesheet" href="{% static 'books/style.css' %}">
 </head>
+
 <body>
 
     <h1>My Book Library</h1>
@@ -14,6 +18,7 @@
     <hr>
 
     {% for book in books %}
+
         <div class="book">
             <h2>{{ book.title }}</h2>
 
@@ -28,10 +33,10 @@
             {% endif %}
         </div>
 
-        <hr>
-
     {% empty %}
+
         <p>No books available.</p>
+
     {% endfor %}
 
 </body>
